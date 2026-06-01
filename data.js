@@ -3,7 +3,7 @@
   // Category definitions. Hue is used for placeholder art + soft tinting;
   // the app's primary accent is driven separately by Tweaks.
   const CATEGORIES = {
-    music:    { id: "music",    label: "Music & Nightlife",   short: "Music",      hue: 286 },
+    party:    { id: "party",    label: "Party & Nightlife",   short: "Party",      hue: 111 },
     culture:  { id: "culture",  label: "Culture & Festivals", short: "Culture",    hue: 152 },
     charity:  { id: "charity",  label: "Fundraiser",          short: "Fundraiser", hue: 18  },
     business: { id: "business", label: "Business & Networking",short: "Business",   hue: 212 },
@@ -12,18 +12,18 @@
 
   const EVENTS = [
     {
-      id: "bubu-nights-london",
-      title: "Bubu Nights: Freetown to London",
-      category: "music",
-      date: "2026-06-13", startTime: "21:00", endTime: "03:00",
-      venue: "Colour Factory", city: "London", country: "United Kingdom",
-      address: "Queens Yard, Hackney Wick, London E9",
-      organizer: "Salone Sounds Collective", organizerType: "Music collective",
-      price: 18, currency: "£",
+      id: "black-tie-affair",
+      title: "NABS Promotions: Black Tie Affair",
+      category: "party",
+      date: "2027-05-30", startTime: "21:00", endTime: "03:00",
+      venue: "Metro Points Hotel", city: "New Carrollton", country: "USA",
+      address: "8500 Annapolis Road, New Carrollton, MD 20784.",
+      organizer: "NABS Promotions", organizerType: "Party collective",
+      price: 120, currency: "$",
       going: 214, capacity: 400, featured: true,
-      tags: ["Bubu", "Afrobeats", "Live band", "18+"],
-      blurb: "A full night of Bubu, Afrobeats and Gumbe — live percussion meets a Freetown DJ takeover.",
-      about: "Salone Sounds brings the sound of the West End of Freetown to East London. Expect a live Bubu procession to open the night, a set from a guest selector flown in for the weekend, and a kitchen serving cassava leaves and jollof until late. Dress to dance.",
+      tags: ["Fine Dining", "Unforgettable Vibes.", "Live band", "18+"],
+      blurb: "A night of sophistication, fine dining, and unforgettable vibes. Dress to impress and prepare to indulge in an atmosphere curated for excellence.",
+      about: "NABS PROMOTIONS - THE BLACK TIE AFFAIR is an exclusive event that promises an unforgettable night of sophistication, fine dining, and unforgettable vibes. Dress to impress and prepare to indulge in an atmosphere curated for excellence. Join us for an evening where elegance meets entertainment, creating memories that will last a lifetime.",
     },
     {
       id: "heritage-day-dc",
@@ -84,7 +84,7 @@
     {
       id: "afrobeats-block-party",
       title: "Salone Summer Block Party",
-      category: "music",
+      category: "party",
       date: "2026-08-15", startTime: "14:00", endTime: "22:00",
       venue: "Druid Hill Park", city: "Baltimore", country: "United States",
       address: "900 Druid Park Lake Dr, Baltimore, MD",
@@ -168,11 +168,11 @@
     {
       id: "gumbe-fusion-toronto",
       title: "Gumbe Fusion: Live Session",
-      category: "music",
+      category: "party",
       date: "2026-09-19", startTime: "20:00", endTime: "01:00",
       venue: "The Drake Underground", city: "Toronto", country: "Canada",
       address: "1150 Queen St W, Toronto, ON",
-      organizer: "Salone Sounds Collective", organizerType: "Music collective",
+      organizer: "Salone Sounds Collective", organizerType: "Party collective",
       price: 25, currency: "$",
       going: 88, capacity: 220, featured: false,
       tags: ["Live band", "Gumbe", "19+"],

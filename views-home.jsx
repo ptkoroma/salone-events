@@ -65,7 +65,7 @@ function HeroSpotlight({ featured, search, setSearch, cat, setCat, onOpen, go })
           onClick={() => onOpen(featured.id)}>
           <EventPoster ev={featured} glyphSize="260px" />
           <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "60px 24px 22px",
-            background: "linear-gradient(to top, rgba(10,8,6,.82), transparent)" }}>
+            background: "rgba(10,8,6,.72)" }}>
             <span className="cat-tag" style={{ background: "var(--accent-2)", color: "#fff" }}>This week’s spotlight</span>
             <h3 style={{ color: "#fff", fontSize: 30, marginTop: 12, lineHeight: 1.02 }}>{featured.title}</h3>
             <div style={{ display: "flex", gap: 16, marginTop: 10, color: "rgba(255,255,255,.9)", fontSize: 14, fontWeight: 600 }}>

@@ -61,10 +61,7 @@ body {
 }
 .app-bg {
   min-height: 100vh;
-  background:
-    radial-gradient(1200px 600px at 88% -8%, color-mix(in oklab, var(--accent) 9%, transparent), transparent 60%),
-    radial-gradient(900px 500px at -6% 4%, color-mix(in oklab, var(--accent-2) 7%, transparent), transparent 55%),
-    var(--paper);
+  background: var(--paper);
 }
 
 button { font-family: inherit; cursor: pointer; }
@@ -92,12 +89,10 @@ h1,h2,h3,h4 { font-family: var(--font-display); font-weight: 800; line-height: 1
 .brand { display: flex; align-items: center; gap: 11px; font-family: var(--font-display); font-weight: 800; font-size: 19px; letter-spacing: -0.02em; }
 .brand-mark {
   width: 34px; height: 34px; border-radius: 10px; flex: none;
-  background: linear-gradient(135deg, var(--accent), var(--accent-ink));
+  background: var(--accent);
   color: var(--on-accent); display: grid; place-items: center;
   font-weight: 800; font-size: 17px; box-shadow: var(--shadow-sm);
-  position: relative; overflow: hidden;
 }
-.brand-mark::after { content:""; position:absolute; inset:0; background: radial-gradient(circle at 70% 20%, rgba(255,255,255,.35), transparent 55%); }
 .brand small { display:block; font-family: var(--font-body); font-weight: 600; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); margin-top: -2px; }
 .nav-links { display: flex; align-items: center; gap: 4px; margin-left: 14px; }
 .nav-link {

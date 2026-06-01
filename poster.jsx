@@ -1,5 +1,5 @@
 // poster.jsx — deterministic placeholder "poster" art for each event
-// No external images; builds a layered gradient + pattern keyed to category.
+// No external images; builds a solid-color placeholder keyed to category hue.
 
 function seedFrom(str) {
   let h = 2166136261;
@@ -16,9 +16,7 @@ function EventPoster({ ev, label = true, glyphSize = "150px" }) {
   const rot = -8 + (seed % 16);
 
   const bg = {
-    backgroundImage:
-      `radial-gradient(120% 130% at ${18 + (seed % 30)}% 0%, hsl(${h2} 78% 62% / .9), transparent 55%),` +
-      `linear-gradient(${angle}deg, hsl(${hue} 72% 30%), hsl(${(hue + 18) % 360} 80% 46%))`,
+    background: `hsl(${hue} 65% 36%)`,
   };
   const glyph = cat.short.toUpperCase();
   const arcs = [0, 1, 2].map((i) => {

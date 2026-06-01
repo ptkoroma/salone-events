@@ -2,7 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/", "destination": "/Sierra%20Leone%20Events", "permanent": false }
+    { "source": "/", "destination": "/Sierra-Leone-Events", "permanent": false }
   ],
   "headers": [
     {

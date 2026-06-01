@@ -4,10 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Running the app
 
-Open `Sierra Leone Events.html` directly in a browser — no build step, no server required.
+Open `Sierra-Leone-Events.html` directly in a browser — no build step, no server required.
 
 ```bash
-open "Sierra Leone Events.html"
+open "Sierra-Leone-Events.html"
 # or on any system with a local server:
 npx serve .
 ```
@@ -22,7 +22,7 @@ This is a **zero-build, in-browser React app**. Babel transpiles the `.jsx` file
 
 There is no ES module system. Each `.jsx` file attaches its exports to `window` at the bottom (e.g. `Object.assign(window, { DetailView, ... })`). The HTML file controls load order — a file can only use names defined by files listed above it in the `<script>` tags.
 
-**Load order** (`Sierra Leone Events.html`):
+**Load order** (`Sierra-Leone-Events.html`):
 1. `data.js` — seed data + helpers → `window.SLE`
 2. `tweaks-panel.jsx` — design tweaks system → `window.useTweaks`, `window.TweaksPanel`, `window.Tweak*`
 3. `poster.jsx` — `EventPoster` component → `window.EventPoster`

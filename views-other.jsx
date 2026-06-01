@@ -27,7 +27,7 @@ function DetailView({ ev, onBack, onOpen, saved, onSave, rsvped, onRsvp, onShare
       <div className="wrap" style={{ paddingTop: 18 }}>
         <div style={{ position: "relative", height: 320, borderRadius: "var(--r-lg)", overflow: "hidden", boxShadow: "var(--shadow-lg)" }}>
           <EventPoster ev={ev} label={false} glyphSize="340px" />
-          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,8,6,.78) 0%, transparent 52%)" }} />
+          <div style={{ position: "absolute", inset: 0, background: "rgba(10,8,6,.68)" }} />
           <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, padding: "30px 34px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", gap: 16, flexWrap: "wrap" }}>
             <div>
               <span className="cat-tag" style={{ background: `hsl(${cat.hue} 75% 55%)`, color: "#fff" }}>{cat.label}</span>
@@ -50,7 +50,7 @@ function DetailView({ ev, onBack, onOpen, saved, onSave, rsvped, onRsvp, onShare
             {ev.tags.map((t) => <span key={t} className="pill"><Ic.tag style={{ width: 14, height: 14 }} /> {t}</span>)}
           </div>
           <div style={{ borderTop: "1px solid var(--line)", paddingTop: 24, display: "flex", alignItems: "center", gap: 14 }}>
-            <div style={{ width: 50, height: 50, borderRadius: 14, background: `linear-gradient(135deg, var(--accent), var(--accent-ink))`, color: "#fff", display: "grid", placeItems: "center", fontWeight: 800, fontFamily: "var(--font-display)", fontSize: 19 }}>{ev.organizer[0]}</div>
+            <div style={{ width: 50, height: 50, borderRadius: 14, background: "var(--accent)", color: "#fff", display: "grid", placeItems: "center", fontWeight: 800, fontFamily: "var(--font-display)", fontSize: 19 }}>{ev.organizer[0]}</div>
             <div><div style={{ fontSize: 12.5, color: "var(--ink-3)", fontWeight: 600 }}>Organized by</div>
               <div style={{ fontWeight: 700, fontSize: 16.5, lineHeight: 1.2, marginTop: 2 }}>{ev.organizer}</div>
               <div style={{ fontSize: 13, color: "var(--ink-3)", marginTop: 2 }}>{ev.organizerType}</div></div>

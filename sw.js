@@ -8,7 +8,7 @@ const DYNAMIC_CACHE = `salone-dynamic-${CACHE_VERSION}`;
 // App shell: everything needed to render the app without the network.
 // The Babel CDN script is large (~9 MB) but required for JSX transpilation offline.
 const APP_SHELL = [
-  '/Sierra%20Leone%20Events',
+  '/Sierra-Leone-Events',
   '/styles.css',
   '/data.js',
   '/tweaks-panel.jsx',

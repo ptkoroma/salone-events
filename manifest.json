@@ -2,7 +2,7 @@
   "name": "Salone Events — Sierra Leone Community",
   "short_name": "Salone Events",
   "description": "Find and share Sierra Leonean community events worldwide — concerts, fundraisers, festivals and meetups.",
-  "start_url": "/Sierra%20Leone%20Events",
+  "start_url": "/Sierra-Leone-Events",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
