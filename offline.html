@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline — Salone Events</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #1C7D4A;
+      --accent-dark: #0F4A2C;
+      --paper: #f9f7f3;
+      --paper-2: #f1ede6;
+      --ink: #1a1714;
+      --ink-2: #4a453e;
+      --ink-3: #8a8278;
+      --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+      --font-body: 'Hanken Grotesk', system-ui, sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+      padding: 32px 24px;
+      gap: 0;
+    }
+
+    .icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 22px;
+      background: var(--accent);
+      display: grid;
+      place-items: center;
+      margin-bottom: 28px;
+      box-shadow: 0 8px 32px rgba(28, 125, 74, 0.3);
+    }
+
+    .icon svg {
+      width: 40px;
+      height: 40px;
+      color: #fff;
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    h1 span { color: var(--accent); }
+
+    p {
+      color: var(--ink-2);
+      font-size: 17px;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 36ch;
+      margin-bottom: 32px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 46px;
+      padding: 0 22px;
+      border-radius: 10px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn:active { opacity: 0.8; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-ghost {
+      background: var(--paper-2);
+      color: var(--ink);
+      border: 1.5px solid rgba(0,0,0,0.1);
+    }
+
+    .tip {
+      margin-top: 44px;
+      padding: 16px 20px;
+      background: var(--paper-2);
+      border: 1px solid rgba(0,0,0,0.08);
+      border-radius: 12px;
+      max-width: 380px;
+      font-size: 13.5px;
+      color: var(--ink-3);
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .tip strong { color: var(--ink-2); }
+  </style>
+</head>
+<body>
+
+  <div class="icon">
+    <!-- wifi-off icon -->
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="1" y1="1" x2="23" y2="23"/>
+      <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/>
+      <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/>
+      <path d="M10.71 5.05A16 16 0 0 1 22.56 9"/>
+      <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/>
+      <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+      <circle cx="12" cy="20" r="1" fill="currentColor"/>
+    </svg>
+  </div>
+
+  <h1>You're <span>offline</span></h1>
+  <p>No network connection right now. You can still browse any events you've already loaded.</p>
+
+  <div class="actions">
+    <a href="/Sierra%20Leone%20Events" class="btn btn-primary">Try again</a>
+    <button class="btn btn-ghost" onclick="window.history.back()">Go back</button>
+  </div>
+
+  <div class="tip">
+    <strong>Tip:</strong> Once you connect, Salone Events loads instantly from your device's cache — even on a slow network.
+  </div>
+
+</body>
+</html>

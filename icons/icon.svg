@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="114" fill="#1C7D4A"/>
+  <rect x="56" y="56" width="400" height="400" rx="80" fill="#0F4A2C" opacity="0.35"/>
+  <text x="256" y="348"
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, sans-serif"
+        font-size="232"
+        font-weight="800"
+        fill="#ffffff"
+        text-anchor="middle"
+        letter-spacing="-6">SL</text>
+</svg>

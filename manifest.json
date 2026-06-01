@@ -1,0 +1,21 @@
+{
+  "name": "Salone Events — Sierra Leone Community",
+  "short_name": "Salone Events",
+  "description": "Find and share Sierra Leonean community events worldwide — concerts, fundraisers, festivals and meetups.",
+  "start_url": "/Sierra%20Leone%20Events",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f9f7f3",
+  "theme_color": "#1C7D4A",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["social", "entertainment", "lifestyle"],
+  "lang": "en-GB"
+}
