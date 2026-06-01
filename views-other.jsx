@@ -229,6 +229,68 @@ function AddEventView({ onBack, onCreated }) {
   );
 }
 
+/* =================== ICS HELPERS =================== */
+function foldLine(line) {
+  if (line.length <= 75) return line;
+  const parts = [line.slice(0, 75)];
+  let pos = 75;
+  while (pos < line.length) { parts.push(' ' + line.slice(pos, pos + 74)); pos += 74; }
+  return parts.join('\r\n');
+}
+
+function escapeICS(str) {
+  return String(str || '').replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
+}
+
+function nextDay(dateStr) {
+  const [y, m, d] = dateStr.split('-').map(Number);
+  const dt = new Date(y, m - 1, d + 1);
+  return `${dt.getFullYear()}${String(dt.getMonth() + 1).padStart(2, '0')}${String(dt.getDate()).padStart(2, '0')}`;
+}
+
+function generateICS(events) {
+  const stamp = new Date().toISOString().replace(/[-:.]/g, '').slice(0, 15) + 'Z';
+  const lines = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Salone Events//Community Calendar//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'X-WR-CALNAME:Salone Events',
+    'X-WR-CALDESC:Sierra Leone community events worldwide',
+  ];
+  const sorted = events.slice().sort((a, b) => window.SLE.parseDate(a) - window.SLE.parseDate(b));
+  for (const ev of sorted) {
+    const d    = ev.date.replace(/-/g, '');
+    const tStart = ev.startTime.replace(':', '') + '00';
+    const tEnd   = (ev.endTime || ev.startTime).replace(':', '') + '00';
+    // End time before start means the event runs past midnight — advance the date.
+    const dEnd = tEnd < tStart ? nextDay(ev.date) : d;
+    lines.push('BEGIN:VEVENT');
+    lines.push(`UID:${ev.id}@salone-events.vercel.app`);
+    lines.push(`DTSTAMP:${stamp}`);
+    lines.push(`DTSTART:${d}T${tStart}`);
+    lines.push(`DTEND:${dEnd}T${tEnd}`);
+    lines.push(foldLine(`SUMMARY:${escapeICS(ev.title)}`));
+    lines.push(foldLine(`DESCRIPTION:${escapeICS(ev.blurb)}`));
+    lines.push(foldLine(`LOCATION:${escapeICS([ev.venue, ev.address].filter(Boolean).join(', '))}`));
+    lines.push(`CATEGORIES:${escapeICS(window.SLE.CATEGORIES[ev.category].label)}`);
+    lines.push('END:VEVENT');
+  }
+  lines.push('END:VCALENDAR');
+  return lines.join('\r\n');
+}
+
+function downloadICS(content, filename) {
+  const blob = new Blob([content], { type: 'text/calendar;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const a    = Object.assign(document.createElement('a'), { href: url, download: filename });
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 /* =================== CALENDAR =================== */
 function CalendarView({ onOpen, saved, onSave }) {
   const events = window.SLE.EVENTS;
@@ -261,6 +323,9 @@ function CalendarView({ onOpen, saved, onSave }) {
     <div className="wrap rise" style={{ paddingTop: 28 }}>
       <div className="sec-head">
         <div><span className="eyebrow">Plan ahead</span><h1 style={{ fontSize: "clamp(30px,4vw,46px)", marginTop: 10 }}>Community calendar</h1></div>
+        <button className="btn btn-ghost btn-sm" onClick={() => downloadICS(generateICS(events), 'salone-events.ics')}>
+          <Ic.download /> Download .ics
+        </button>
       </div>
       <div style={{ display: "grid", gridTemplateColumns: "1.7fr 1fr", gap: 28, alignItems: "start" }}>
         {/* calendar */}
