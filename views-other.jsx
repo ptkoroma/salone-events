@@ -82,6 +82,7 @@ function DetailView({ ev, onBack, onOpen, saved, onSave, rsvped, onRsvp, onShare
                 <Ic.heart style={{ fill: saved.has(ev.id) ? "var(--accent-2)" : "none", color: saved.has(ev.id) ? "var(--accent-2)" : "currentColor" }} /> {saved.has(ev.id) ? "Saved" : "Save"}
               </button>
               <button className="btn btn-ghost btn-sm" style={{ flex: 1 }} onClick={() => onShare && onShare(ev)}><Ic.share /> Share</button>
+              <button className="btn btn-ghost btn-sm" style={{ flex: 1 }} onClick={() => downloadICS(generateICS([ev]), ev.id + '.ics')}><Ic.download /> Add to cal</button>
             </div>
           </div>
         </aside>
@@ -143,8 +144,9 @@ function AddEventView({ onBack, onCreated }) {
         <h1 style={{ fontSize: 40 }}>Your event is live!</h1>
         <p style={{ color: "var(--ink-2)", fontSize: 17, marginTop: 10 }}>“{done.title}” has been added to the community calendar. Share it with your people to get the RSVPs rolling.</p>
         <div style={{ maxWidth: 360, margin: "26px auto 0" }}><EventCard ev={done} onOpen={() => onCreated(done.id)} saved={new Set()} onSave={() => {}} /></div>
-        <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 26 }}>
+        <div style={{ display: "flex", gap: 12, justifyContent: "center", marginTop: 26, flexWrap: "wrap" }}>
           <button className="btn btn-primary" onClick={() => onCreated(done.id)}>View event <Ic.arrow /></button>
+          <button className="btn btn-ghost" onClick={() => downloadICS(generateICS([done]), done.id + '.ics')}><Ic.download /> Download .ics</button>
           <button className="btn btn-ghost" onClick={onBack}>Back to events</button>
         </div>
       </div>
