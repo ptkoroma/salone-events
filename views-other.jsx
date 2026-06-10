@@ -81,7 +81,7 @@ function DetailView({ ev, onBack, onOpen, saved, onSave, rsvped, onRsvp, onShare
               <button className="btn btn-ghost btn-sm" style={{ flex: 1 }} onClick={() => onSave(ev.id)}>
                 <Ic.heart style={{ fill: saved.has(ev.id) ? "var(--accent-2)" : "none", color: saved.has(ev.id) ? "var(--accent-2)" : "currentColor" }} /> {saved.has(ev.id) ? "Saved" : "Save"}
               </button>
-              <button className="btn btn-ghost btn-sm" style={{ flex: 1 }} onClick={() => onShare && onShare(ev)}><Ic.share /> Share</button>
+              <button className="btn btn-ghost btn-sm" style={{ flex: 1 }} onClick={() => onShare && onShare(ev.id)}><Ic.share /> Share</button>
               <button className="btn btn-ghost btn-sm" style={{ flex: 1 }} onClick={() => downloadICS(generateICS([ev]), ev.id + '.ics')}><Ic.download /> Add to cal</button>
             </div>
           </div>

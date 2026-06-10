@@ -35,9 +35,27 @@ function Toast({ msg, ok }) {
   return <div className={"toast" + (msg ? " show" : "")}>{ok && <Ic.check className="ok" />}{msg}</div>;
 }
 
+function routeToHash(r) {
+  if (r.name === "detail" && r.id) return "#/event/" + r.id;
+  if (r.name === "home") return "#/home";
+  return "#/" + r.name;
+}
+
+function hashToRoute(hash) {
+  const h = (hash || "").replace(/^#/, "");
+  if (!h || h === "/" || h === "/home") return { name: "home" };
+  const m = h.match(/^\/event\/(.+)$/);
+  if (m) return { name: "detail", id: m[1] };
+  if (h === "/add") return { name: "add" };
+  if (h === "/calendar") return { name: "calendar" };
+  if (h === "/saved") return { name: "saved" };
+  return { name: "home" };
+}
+
 function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const [route, setRoute] = useState(() => {
+    if (window.location.hash && window.location.hash !== "#") return hashToRoute(window.location.hash);
     try { return JSON.parse(localStorage.getItem("sle.route")) || { name: "home" }; } catch (e) { return { name: "home" }; }
   });
   const [saved, toggleSaved] = usePersistentSet("sle.saved");
@@ -54,14 +72,35 @@ function App() {
   const go = (name, params = {}) => {
     const r = { name, ...params };
     setRoute(r);
+    window.location.hash = routeToHash(r);
     try { localStorage.setItem("sle.route", JSON.stringify(r)); } catch (e) {}
     window.scrollTo({ top: 0 });
   };
   const openEvent = (id) => go("detail", { id });
 
+  // sync back/forward button navigation
+  useEffect(() => {
+    const onHashChange = () => {
+      const r = hashToRoute(window.location.hash);
+      setRoute(r);
+      try { localStorage.setItem("sle.route", JSON.stringify(r)); } catch (e) {}
+      window.scrollTo({ top: 0 });
+    };
+    window.addEventListener("hashchange", onHashChange);
+    // stamp the hash for the current route on first load if it’s missing
+    if (!window.location.hash || window.location.hash === "#") {
+      window.location.replace(routeToHash(route));
+    }
+    return () => window.removeEventListener("hashchange", onHashChange);
+  }, []);
+
   const onSave = (id) => { const was = saved.has(id); toggleSaved(id); flash(was ? "Removed from saved" : "Saved to your list"); };
   const onRsvp = (id) => { const was = rsvped.has(id); toggleRsvped(id); flash(was ? "RSVP cancelled" : "You’re going — see you there!"); };
-  const onShare = (ev) => { try { navigator.clipboard && navigator.clipboard.writeText(window.location.href); } catch (e) {} flash("Event link copied"); };
+  const onShare = (id) => {
+    const url = window.location.href.split("#")[0] + routeToHash({ name: "detail", id });
+    try { navigator.clipboard && navigator.clipboard.writeText(url); } catch (e) {}
+    flash("Event link copied");
+  };
 
   // apply tweaks to root
   const accent = Array.isArray(t.accent) ? t.accent : TWEAK_DEFAULTS.accent;
