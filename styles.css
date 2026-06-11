@@ -252,6 +252,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); font-weight: 800; line-height: 1
   .emag .poster { min-height: 200px; }
   .detail-header-band { display: none !important; }
   .detail-mobile-only { display: block !important; }
+  .detail-desktop-only { display: none !important; }
 }
 
 .detail-mobile-only { display: none; }

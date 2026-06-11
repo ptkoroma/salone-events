@@ -42,7 +42,7 @@ function DetailView({ ev, onBack, onOpen, saved, onSave, rsvped, onRsvp, onShare
         {/* left */}
         <div style={{ display: "flex", flexDirection: "column", gap: 30 }}>
           <p style={{ fontSize: 20, lineHeight: 1.5, color: "var(--ink)", margin: 0, fontWeight: 500 }}>{ev.blurb}</p>
-          <div>
+          <div className="detail-desktop-only">
             <h3 style={{ fontSize: 22, marginBottom: 10 }}>About this event</h3>
             <p style={{ color: "var(--ink-2)", fontSize: 16.5, lineHeight: 1.65, margin: 0 }}>{ev.about}</p>
           </div>
