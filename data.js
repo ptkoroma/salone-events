@@ -179,6 +179,20 @@
       blurb: "A live band reimagining Gumbe with jazz and highlife — intimate basement session.",
       about: "An eight-piece band reworks classic Gumbe rhythms with jazz horns and highlife guitar. Seated early, dancing late. A rare chance to hear this sound played live outside Freetown.",
     },
+    {
+      id: "seaa-metro-dc-summer-bazaar-2026",
+      title: "St. Edward's Alumni Metro DC Chapter — Summer Bazaar 2026",
+      category: "culture",
+      date: "2026-07-25", startTime: "13:00", endTime: "01:00",
+      venue: "The Conway Grand Hall", city: "Hyattsville", country: "United States",
+      address: "6201 Belcrest Rd, Hyattsville, MD 20782",
+      organizer: "St. Edward's Alumni Association (Metro DC Chapter)", organizerType: "Alumni association",
+      price: 0, currency: "$",
+      going: 0, capacity: 0, featured: false,
+      tags: ["Alumni", "Bazaar", "Metro DC", "Summer"],
+      blurb: "St. Edward's Alumni Association (Metro DC Chapter) Summer Bazaar is a vibrant evening of fellowship, culture, food, music, and community spirit.",
+      about: "St. Edward's Alumni Association (Metro DC Chapter) Summer Bazaar is a vibrant evening of fellowship, culture, food, music, and community spirit. Join fellow alumni and friends at The Conway Grand Hall for an unforgettable night celebrating shared roots and lasting bonds.",
+    },
   ];
 
   // ---- helpers ----
