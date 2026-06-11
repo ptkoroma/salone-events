@@ -93,7 +93,7 @@ function DetailView({ ev, onBack, onOpen, saved, onSave, rsvped, onRsvp, onShare
       </div>
 
       {similar.length > 0 && (
-        <div className="wrap" style={{ paddingTop: 52 }}>
+        <div className="wrap detail-desktop-only" style={{ paddingTop: 52 }}>
           <div className="sec-head"><h2 style={{ fontSize: 28 }}>More {cat.short.toLowerCase()} events</h2></div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 20 }}>
             {similar.map((e) => <EventCard key={e.id} ev={e} onOpen={onOpen} saved={saved} onSave={onSave} />)}
