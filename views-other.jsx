@@ -24,7 +24,7 @@ function DetailView({ ev, onBack, onOpen, saved, onSave, rsvped, onRsvp, onShare
         <button className="btn btn-ghost btn-sm" onClick={onBack}><Ic.back /> All events</button>
       </div>
       {/* header band */}
-      <div className="wrap" style={{ paddingTop: 18 }}>
+      <div className="wrap detail-header-band" style={{ paddingTop: 18 }}>
         <div style={{ position: "relative", height: 320, borderRadius: "var(--r-lg)", overflow: "hidden", boxShadow: "var(--shadow-lg)" }}>
           <EventPoster ev={ev} label={false} glyphSize="340px" />
           <div style={{ position: "absolute", inset: 0, background: "rgba(10,8,6,.68)" }} />
@@ -59,6 +59,10 @@ function DetailView({ ev, onBack, onOpen, saved, onSave, rsvped, onRsvp, onShare
         {/* right sticky card */}
         <aside style={{ position: "sticky", top: 88 }}>
           <div style={{ background: "var(--paper-2)", border: "1px solid var(--line-2)", borderRadius: "var(--r-lg)", padding: 24, boxShadow: "var(--shadow-md)", display: "flex", flexDirection: "column", gap: 18 }}>
+            <div className="detail-mobile-only">
+              <span className="cat-tag" style={{ background: `hsl(${cat.hue} 75% 55%)`, color: "#fff" }}>{cat.label}</span>
+              <h2 style={{ fontSize: "clamp(22px,5vw,30px)", marginTop: 10, lineHeight: 1.2 }}>{ev.title}</h2>
+            </div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
               <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 30 }}>{window.SLE.fmtPrice(ev)}</div>
               <div style={{ color: "var(--ink-3)", fontSize: 13.5, fontWeight: 600 }}>{going} going · {ev.capacity - going} left</div>
