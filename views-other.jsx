@@ -40,7 +40,7 @@ function DetailView({ ev, onBack, onOpen, saved, onSave, rsvped, onRsvp, onShare
 
       <div className="wrap" style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 40, paddingTop: 36, alignItems: "start" }}>
         {/* left */}
-        <div style={{ display: "flex", flexDirection: "column", gap: 30 }}>
+        <div className="detail-desktop-only" style={{ display: "flex", flexDirection: "column", gap: 30 }}>
           <p className="detail-desktop-only" style={{ fontSize: 20, lineHeight: 1.5, color: "var(--ink)", margin: 0, fontWeight: 500 }}>{ev.blurb}</p>
           <div className="detail-desktop-only">
             <h3 style={{ fontSize: 22, marginBottom: 10 }}>About this event</h3>
