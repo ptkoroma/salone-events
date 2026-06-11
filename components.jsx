@@ -159,7 +159,7 @@ function Nav({ route, go, savedCount, onAdd }) {
           <Ic.heart className="heart" style={{ fill: savedCount ? "var(--accent-2)" : "none" }} />
           {savedCount > 0 && <span>{savedCount}</span>}
         </a>
-        <button className="btn btn-dark btn-sm" onClick={onAdd}><Ic.plus /> Add event</button>
+        <button className="btn btn-dark btn-sm nav-links" onClick={onAdd}><Ic.plus /> Add event</button>
       </div>
     </nav>
   );

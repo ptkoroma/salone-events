@@ -20,7 +20,7 @@ function DetailView({ ev, onBack, onOpen, saved, onSave, rsvped, onRsvp, onShare
 
   return (
     <div className="rise">
-      <div className="wrap" style={{ paddingTop: 20 }}>
+      <div className="wrap detail-desktop-only" style={{ paddingTop: 20 }}>
         <button className="btn btn-ghost btn-sm" onClick={onBack}><Ic.back /> All events</button>
       </div>
       {/* header band */}
@@ -65,7 +65,7 @@ function DetailView({ ev, onBack, onOpen, saved, onSave, rsvped, onRsvp, onShare
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
               <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 30 }}>{window.SLE.fmtPrice(ev)}</div>
-              <div style={{ color: "var(--ink-3)", fontSize: 13.5, fontWeight: 600 }}>{going} going · {ev.capacity - going} left</div>
+              <div className="detail-desktop-only" style={{ color: "var(--ink-3)", fontSize: 13.5, fontWeight: 600 }}>{going} going · {ev.capacity - going} left</div>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               <InfoRow icon={<Ic.cal />} label="Date" value={window.SLE.fmtDateLong(ev)} />
